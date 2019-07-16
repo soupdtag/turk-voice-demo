@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+		<script src='https://s3.amazonaws.com/mturk-public/externalHIT_v1.js' type='text/javascript'></script>
+		<script src='https://csail.mit.edu/people/csong23/scripts/recorder.js' type='text/javascript'></script>
+	</head>
+	<body>
+		<!-- create the HIT form -->
+		<form name='mturk_form' method='post' id='mturk_form' action='https://workersandbox.mturk.com/mturk/externalSubmit'>
+			<input type='hidden' value='' name='assignmentId' id='assignmentId'/>
+
+			<!-- play the sound -->
+			<h1>Please identify the played sound.</h1>
+			<audio id="given_sound" preload="auto">
+				<source src="${content}" type="audio/wav">
+			</audio>
+			<button type='button' onclick="javascript:play_given_sound();">Play</button>
+			<!-- <p><textarea name='answer' rows=1 cols=80></textarea></p> -->
+
+			<!-- record user audio -->
+			<div id="controls">
+				<button id="recordButton">Record</button>
+				<button id="pauseButton" disabled>Pause</button>
+				<button id="stopButton" disabled>Stop</button>
+			</div>
+
+			<!-- submit the HIT -->
+			<button type='submit' id='submitButton'>Submit</button>	
+		</form>
+		<script language='Javascript'>turkSetAssignmentID();</script>
+		<script type="text/javascript"> function play_given_sound() { document.getElementById('given_sound').play(); }</script>
+		<script src='https://raw.githubusercontent.com/addpipe/simple-recorderjs-demo/master/js/app.js' type='text/javascript'></script>
+		<script src='https://raw.githubusercontent.com/mattdiamond/Recorderjs/master/src/recorder.js' type='text/javascript'></script>
+	</body>
+</html>
